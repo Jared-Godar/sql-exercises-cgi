@@ -150,3 +150,37 @@
 >SELECT BusinessEntityID, JobTitle, MaritalStatus, Gender
 FROM employee
 WHERE 
+
+## Operators and Functions
+
+- Arithmetic `+`, `-`, `*`, `/`
+  
+> SELECT MAX_SALARY-MIN_SALARY AS "SALARY_RANGE" FROM JOBS;
+
+- Comparison `=`, `<`, `<=`, `>=`, `>`, `<>`, `!=`
+
+> SELECT * FROM PurchaseOrderDetail WHERE 
+
+- Other `LIKE`, `NOT LIKE`, `BETWEEN`, `NOT BETWEEN`, `IN`, `NOT IN`
+
+> SELECT * FROM PurchaseOrderDetail WHERE LineTotal BETWEEN 20000 AND 30000;
+
+## String Operations and Functions
+
+- `+` Concatenate
+- `LOWER()`
+- `UPPER()`
+- `LEN()`
+- `LTRIM()` Left trim
+- `RTRIM()`
+- `SUBSTRING(strinname, start, end)`
+
+## Aggregate
+
+- `COUNT()`
+- `COUNT(*)` Total rows
+- `COUNT DISTINCT`
+- `MAX()`
+- `MIN()`
+- `SUM()`
+- `AVG()`

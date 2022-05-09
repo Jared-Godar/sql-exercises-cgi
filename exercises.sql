@@ -54,5 +54,96 @@ SELECT PurchaseOrderDetailID, LineTotal
     FROM PurchaseOrderDetail 
     WHERE LineTotal > 20000;
 
--- 1,270 riws
+-- 1,270 rows
+
+-- 8. AGGREGATE FUNCTIONS
+
+-- The maximum Vacation Hours amount
+
+SELECT MAX(VacationHours) AS "Max_Vacation_hours"
+	FROM Employee;
+
+    --99
+
+-- The minimum Vacation Hours amount
+
+SELECT MAX(VacationHours) AS "Max_Vacation_hours"
+	FROM Employee;
+
+    --0
+
+-- The total Sick Leave Hours across all employees
+
+SELECT SUM(VacationHours) AS "Total_Vacation_hours"
+	FROM Employee;
+
+    --14678
+
+-- The average Vacation Hours amount
+
+SELECT AVG(VacationHours) AS "Average_Vacation_hours"
+	FROM Employee;
+
+    -- 50
+
+
+-- The total number of employees
+
+SELECT COUNT(BusinessEntityID) as "Total_number_employeees"
+	FROM Employee;
+
+    --290
+
+-- The total number of employees with less than 30 Sick Leave Hours
+
+SELECT COUNT(BusinessEntityID) AS "Employees_under_30"
+	FROM Employee
+	WHERE SickLeaveHours < 30;
+
+    --52
+    
+-- 9. How many total hours did each employee take off for vacation and sick leave?
+
+SELECT LoginID, VacationHours + SickLeaveHours AS "Leave"
+	FROM Employee;
+
+-- 10. Display the LoginID, Job Title, and Gender of all the Engineers
+
+SELECT LoginID, JobTitle, Gender
+	FROM Employee
+	WHERE JobTitle LIKE '%engineer';
+
+    -- 6 rows
+
+-- 11. Using the ProductInventory table, return the total quantity of products on shelf A
+
+SELECT SUM(Quantity) 
+    FROM ProductInventory
+    WHERE Shelf = 'A';
+
+
+-- 12. Using the ProductInventory table, show the total quantity of each Product ID. Display the results in order from most to least.
+
+SELECT SUM(Quantity) AS 'Shelf_A_Total'
+    FROM ProductInventory
+    WHERE Shelf = 'A';
+
+-- 13. 2 new addresses need to be added. Insert their information in the Address table. 
+
+
+/* 123 Street | Somewhere | 1 | 55555
+   456 Road   | SQLCity   | 2 | 22222 */
+
+
+
+-- 14. Update the Postal Code of SQLCity to be 33333 
+
+
+
+-- 15.1. Create an exact replica of the Employee table, with data
+
+
+
+-- 15.2. Create an exact replica of the Employee table, without any data
+
 
