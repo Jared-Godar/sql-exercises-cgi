@@ -89,7 +89,7 @@ SELECT AVG(VacationHours) AS "Average_Vacation_hours"
 
 -- The total number of employees
 
-SELECT COUNT(BusinessEntityID) as "Total_number_employeees"
+SELECT COUNT(BusinessEntityID) AS "Total_number_employeees"
 	FROM Employee;
 
     --290
@@ -101,7 +101,7 @@ SELECT COUNT(BusinessEntityID) AS "Employees_under_30"
 	WHERE SickLeaveHours < 30;
 
     --52
-    
+
 -- 9. How many total hours did each employee take off for vacation and sick leave?
 
 SELECT LoginID, VacationHours + SickLeaveHours AS "Leave"
@@ -117,24 +117,33 @@ SELECT LoginID, JobTitle, Gender
 
 -- 11. Using the ProductInventory table, return the total quantity of products on shelf A
 
-SELECT SUM(Quantity) 
-    FROM ProductInventory
-    WHERE Shelf = 'A';
-
-
--- 12. Using the ProductInventory table, show the total quantity of each Product ID. Display the results in order from most to least.
-
 SELECT SUM(Quantity) AS 'Shelf_A_Total'
     FROM ProductInventory
     WHERE Shelf = 'A';
 
+        --26833
+
+
+-- 12. Using the ProductInventory table, show the total quantity of each Product ID. Display the results in order from most to least.
+
+SELECT ProductID, SUM(Quantity) AS "total_by_product"
+    FROM ProductInventory
+    GROUP BY ProductID
+	ORDER BY total_by_product DESC;
+
+
+
 -- 13. 2 new addresses need to be added. Insert their information in the Address table. 
 
 
-/* 123 Street | Somewhere | 1 | 55555
-   456 Road   | SQLCity   | 2 | 22222 */
+/* AddressLine1 | City      | StateProvinceID | PostalCode
+   123 Street   | Somewhere | 1               | 55555
+   456 Road     | SQLCity   | 2               | 22222 */
 
-
+INSERT INTO Address(AddressLine1, City, StateProvinceID, Postalcode)
+    VALUES ('123 Street', 'Somewhere', 1, 55555);
+INSERT INTO Address(AddressLine1, City, StateProvinceID, Postalcode)
+    VALUES ('456 Road', 'SQLCity', 2, 22222)
 
 -- 14. Update the Postal Code of SQLCity to be 33333 
 
@@ -142,8 +151,12 @@ SELECT SUM(Quantity) AS 'Shelf_A_Total'
 
 -- 15.1. Create an exact replica of the Employee table, with data
 
-
+SELECT * INTO Employee_Copy_JG
+    FROM Employee;
 
 -- 15.2. Create an exact replica of the Employee table, without any data
 
+SELECT * INTO Employee_Copy_Empty_JG
+    FROM Employee;
+    WHERE 1=2;
 

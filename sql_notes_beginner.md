@@ -184,3 +184,67 @@ WHERE
 - `MIN()`
 - `SUM()`
 - `AVG()`
+
+## More SQL
+
+- `ORDER BY`
+  - Specific order
+  - Default ascending
+  - `ORDER BY DESC`
+  - `SELECT Col FROM Table WHERE cond ORDER BY col [, col2, ...]`
+  - Can have next3ed, multiple order bys
+- `GROUP BY`
+  - Look at data in an aggregated way
+  - `SELECT Col1, AGGREGATE_FN(col2) FROM table GROUP BY col1
+  - `SELECT JobTitle, AVG(VacationHours) FROM Employee GROUP BY JobTitle;
+- `INSERT`
+  - `INSERT INTO tablename(colname) VALUES(value)`
+  - `INSERT INTO Employees(JobTitle, BirthDate, MaritalStatus) VALUES ('Tool Designer', 1997-08-23, 'S)
+  - Important to commit after inserting
+- `UPDATE`
+- `DELETE`
+- `COMMIT`
+  - Must always commit updates and deletes to save
+  - Make tentative changes permate
+- `ROLLBACK`
+  - Unco DML commands
+  - Tricky in SQL already inserted data cannot be rolled back easily, may require update / restoring
+
+BEGIN TRANSACTION
+// EXECUTE SQL CODE HERE
+ROLLBACK TRANSACTION
+
+## Data Definition Language (DDL)
+
+- DDL syntax to change the way a database is physically designed
+- Languate of structures
+- `CREATE`
+  - Create DB object. Focus on table createion
+  - `CREATE TABLE table_name (col_name data type length, ...)`
+  - CREATE TABLE TEST_TABLE()
+  - Constraints - unique, primary key, foreign null, not null
+    - CREATE TABLE test_table2(Test_table_2 IS INT PRIMARY KEY, NAME CHAR(20 NOT NULL, AGE INT);)
+
+- `DROP`
+  - Delete database object
+  - `DROP TABLE TABLE_NAME;`
+- `ALTER`
+  - Alter structure of existing table
+  - Add/Drop column
+  - Change variable type
+  - Rename table
+  - `ALTER TABLE table_name ADD col_name column-definition;`
+  - `ALTER TABLE suppliers ADD supplier_name Char(50);`
+- `TRUNCATE`
+  - Deletes all the dat in a table while retaining the table structure
+  - `TRUNCATE TABLE TABLE_NAME;`
+  - `TRUNCATE TABLE suppliers;
+- `RENAME`
+
+## DATA CONTROL LANGUAGE
+
+- `GRANT`
+  - Assign privilege to user or group
+  - `GRANT privelige ON object TO `
+  - `GRANT SELECT, INSERT, UPDATE, DELETE ON COUNTRIES TO PUBLIC
+- `REVOKE`
