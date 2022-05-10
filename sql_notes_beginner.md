@@ -98,9 +98,6 @@
 - `SP_COLUMNS` | Used to view structral info in Oracle DB
 - `INFORMATION_SCHEMA`
 
-> `SELCCT * FROM
->   {Database}.INFORMATION_SCHEMA.columns
-
 ---
 
 > Itai
@@ -109,61 +106,77 @@
 
 ### Basic Select
 
-> SELECT * FROM TABLE_NAME;
+```sql
+SELECT * FROM TABLE_NAME;
+```
 
 - Specific columns
 
->SELECT col_name1 [, col_name2...]
->    FROM TABLE_NAME;
+```sql
+SELECT col_name1 [, col_name2...]
+    FROM TABLE_NAME;
+```
 
 - Distinct
 - View distinct rows from a table
 
->SELECT DISTINCT COL_NAME1
->     FROM TABLE_NAME
+```sql
+SELECT DISTINCT COL_NAME1
+     FROM TABLE_NAME
 
->SELECT DISTINCT CITY
->     FROM ADDRESS;
+SELECT DISTINCT CITY
+     FROM ADDRESS;
+```
 
 - WHERE - select specific row
 
-> SELECT COL_NAME1
-> FROM TABLE_NAME
-> WHERE CONDITION;
+```sql
+SELECT COL_NAME1
+FROM TABLE_NAME
+WHERE CONDITION;
 
-> SELECT * FROM ADDRESS
-> WHERE CITY = 'Seattle';
+SELECT * FROM ADDRESS
+WHERE CITY = 'Seattle';
+```
 
 - Ensure filter conforms with datatype - '' for strings
-
-
 - View Address, city, and postcode of addresses in seattle
 
-> SELECT AddressLine1, City, PostalCode
-> FROM ADDDRESSES
-> WHERE CITY = 'Seattle';
+```sql
+SELECT AddressLine1, City, PostalCode
+FROM ADDDRESSES
+WHERE CITY = 'Seattle';
+```
 
 - Multiple conditions AND/OR
 
 - All employees that are either female or marketing assistants
 
->SELECT BusinessEntityID, JobTitle, MaritalStatus, Gender
+```sql
+SELECT BusinessEntityID, JobTitle, MaritalStatus, Gender
 FROM employee
 WHERE 
+```
 
 ## Operators and Functions
 
 - Arithmetic `+`, `-`, `*`, `/`
-  
-> SELECT MAX_SALARY-MIN_SALARY AS "SALARY_RANGE" FROM JOBS;
+
+```sql
+SELECT MAX_SALARY-MIN_SALARY AS "SALARY_RANGE" FROM JOBS;
+```
 
 - Comparison `=`, `<`, `<=`, `>=`, `>`, `<>`, `!=`
 
-> SELECT * FROM PurchaseOrderDetail WHERE 
+```sql
+SELECT * FROM PurchaseOrderDetail WHERE 
+```
 
 - Other `LIKE`, `NOT LIKE`, `BETWEEN`, `NOT BETWEEN`, `IN`, `NOT IN`
 
-> SELECT * FROM PurchaseOrderDetail WHERE LineTotal BETWEEN 20000 AND 30000;
+```sql
+SELECT * FROM PurchaseOrderDetail WHERE LineTotal BETWEEN 20000 AND 30000;
+```
 
 ## String Operations and Functions
 
